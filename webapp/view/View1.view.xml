@@ -1,0 +1,31 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="ns.project1.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <Shell>
+        <Page id="page" title="{i18n>title}">
+            <content>
+                    <HBox alignItems="Center">
+                        <Label id="idMiLabel" text="Label de este Input:" class="sapUiSmallMargin" labelFor="idMiInput" />
+                        <Input id="idMiInput" width="300px" maxLength="6" class="sapUiSmallMargin" placeholder="un nº [0-9] + cinco letras" liveChange="onInputLiveChange"/>
+                    </HBox>
+            </content>
+        </Page>
+    </Shell>
+</mvc:View>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
