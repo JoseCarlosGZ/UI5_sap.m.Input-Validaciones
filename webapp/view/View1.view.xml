@@ -1,16 +1,59 @@
 <mvc:View xmlns:form="sap.ui.layout.form" controllerName="ns.project1.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
     <Shell>
         <Page id="page" title="{i18n>title}">
-            <content>
-                    <HBox alignItems="Center">
-                        <Label id="idMiLabel" text="Label de este Input:" class="sapUiSmallMargin" labelFor="idMiInput" />
-                        <Input id="idMiInput" width="300px" maxLength="6" class="sapUiSmallMargin" placeholder="un nº [0-9] + cinco letras" liveChange="onInputLiveChange"/>
-                    </HBox>
-            </content>
+        <content>
+        <VBox> 
+
+            <HBox alignItems="Center">
+                <Label  text="Este Input se ha validado directamente en la vista sólo con xml" class="sapUiSmallMargin" labelFor="id_Input_Validado_en_Vista1" />
+
+                <Input 
+                    id="id_Input_Validado_en_Vista1"
+                    width="300px"
+                    class="sapUiSmallMargin" 
+                    maxLength="6"
+                    value="{miModelo>/valor}"
+                    valueState="{= RegExp('[0-9][a-zA-Z]{5}').test(${miModelo>/valor}) ? 'Success' : 'Error'}"
+                    valueStateText="Introduce una cadena de 6 caracteres en el que el primero tiene que ser un nº del 0-9 y\n los siguientes 5 deben ser letras a-zA-Z \n(e.g. 1abcde)" 
+                    placeholder="un nº [0-9] + cinco letras" 
+                />
+            </HBox>
+
+
+            <HBox alignItems="Center">
+                <Label  text="Este Input se ha validado directamente en la vista sólo con xml" class="sapUiSmallMargin" labelFor="id_Input_Validado_en_Vista2" />
+
+                <Input 
+                    id="id_Input_Validado_en_Vista2"
+                    width="300px"
+                    class="sapUiSmallMargin" 
+                    maxLength="6"
+                    value="{miModelo>/valor}"
+                    valueState="{= RegExp('[0-9][a-zA-Z]{5}').test(${miModelo>/valor}) || ${miModelo>/valor}==='' ? 'Success' : 'Error'}"
+                    valueStateText="Introduce una cadena de 6 caracteres en el que el primero tiene que ser un nº del 0-9 y\n los siguientes 5 deben ser letras a-zA-Z \n(e.g. 1abcde)" 
+                    placeholder="un nº [0-9] + cinco letras" 
+                />
+            </HBox>
+
+
+            <HBox alignItems="Center">
+                <Label id="idMiLabel" text="Este Input se ha validado en el controlador:" class="sapUiSmallMargin" labelFor="id_Input_Validado_en_Controlador" /> 
+
+                <Input 
+                    id="id_Input_Validado_en_Controlador" 
+                    width="300px" 
+                    maxLength="6" 
+                    class="sapUiSmallMargin" 
+                    placeholder="un nº [0-9] + cinco letras" 
+                    liveChange="onInputLiveChange"
+                />
+            </HBox>
+
+        </VBox>                 
+        </content>
         </Page>
     </Shell>
 </mvc:View>
-
 
 
 
