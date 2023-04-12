@@ -6,13 +6,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller"],
     "use strict";
 
     return Controller.extend("ns.project1.controller.View1", {
-        onInit: function () {},
+        onInit: function () {
+            var oModel = new sap.ui.model.json.JSONModel({"valor":""});
+            this.getView().setModel(oModel, "miModelo");
+        },
         onInputLiveChange: function (oEvent) {
             var oInput = oEvent.getSource();
             var sValue = oInput.getValue();
-
             var oRegExp = /^[0-9][a-zA-Z]{5}$/;
-
             //Si el Input está vacío no le pongas ningún color
             if (oInput.getValue().trim() === "") {
                 oInput.setValueState(sap.ui.core.ValueState.None);
@@ -26,8 +27,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller"],
                 oInput.setValueState(sap.ui.core.ValueState.Success);
                 oInput.setValueStateText("");
             }
-
-
         }
 
 
